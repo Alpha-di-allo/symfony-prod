@@ -1,0 +1,23 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Mot De Passe{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset('css/resetAfterLinkPassword.css')}}
+{% endblock %}
+
+{% block body %}
+<div class="content-container">
+    <div class="form-container">
+        <h1>Modifier Mot de Passe</h1>
+        {{ form_start(resetForm) }}
+            <div class="form-group">
+                {{ form_row(resetForm.plainPassword) }}
+            </div>
+            <button class="btn btn-primary">Reset Mot de Passe </button>
+        {{ form_end(resetForm) }}
+    </div>
+</div>
+{% endblock %}

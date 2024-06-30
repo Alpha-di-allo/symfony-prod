@@ -1,0 +1,57 @@
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/productDetails.css') }}">
+{% endblock %}
+
+{% block title %} Détails Produit{% endblock %}
+
+{% block body %}
+
+<div class="product-title">
+    <h1>{{ product.nom }}</h1> <!-- Titre du produit -->
+</div>
+
+<div class="product-container">
+    <div class="product-image">
+        <img src="{{ asset('images/upload/Products/' ~ product.image) }}" class="img-fluid" alt="Product Image">
+    </div>
+    <div class="product-details">
+        <div class="product-ingredient">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ingrédients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            {% for ingredient in product.ingredient %}
+                                {{ ingredient.name }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>{{ product.description|raw }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix</th>
+                    </tr>
+                    <tr>
+                        <td>{{ product.prix / 100 }}€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<a href="{{ path('app_product_vu_client') }}" class="btn btn-success return">Retour au catalogue</a>
+
+{% endblock %}
+

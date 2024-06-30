@@ -1,0 +1,161 @@
+body {
+  background-color: #efc841;
+}
+
+.img-wrapper {
+  max-width: 100%;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  caroussel-inner {
+    display: flex;
+  }
+  caroussel-item {
+    display: block;
+    margin-right: 0;
+    flex: 0 0 calc(100% / 3);
+  }
+  .img-wrapper {
+    height: 23vw;
+  }
+}
+
+.titre {
+  text-align: center;
+  margin-top: 4%;
+}
+
+.caroussel-inner {
+  padding: 1em;
+}
+
+/* Carte */
+.card {
+  margin: 0.5em;
+}
+
+/* Style général */
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Titre de la catégorie */
+.category-title {
+  margin-bottom: 3rem; /* Ajustez selon vos besoins */
+}
+
+/* Boutons de navigation du carrousel */
+.carousel-nav-btn {
+  margin-bottom: 1rem; /* Ajustez selon vos besoins */
+}
+
+.card img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  text-align: left;
+}
+
+.card-text p {
+  color: #666;
+  font-size: medium;
+  font-weight: normal;
+}
+
+.btn-success {
+  margin-top: 10px;
+}
+
+.catname {
+  margin-left: 0;
+  text-transform: uppercase;
+  color: #408b42;
+}
+
+.col-md-4 {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles pour toutes les cartes */
+.custom-card {
+  margin: 0.5em; /* Marge uniforme pour toutes les cartes */
+  text-align: left; /* Alignement du texte uniforme pour toutes les cartes */
+  font-size: medium;
+}
+
+/* Styles spécifiques pour le texte des cartes */
+.custom-card .card-title {
+  /* Styles spécifiques pour le titre de la carte */
+  color: red;
+}
+
+.custom-card .card-text p {
+  /* Styles spécifiques pour le texte de la carte */
+  font-size: small; /* Taille de la police plus petite que la normale */
+  font-weight: normal; /* Texte non gras */
+}
+
+/* Autres styles spécifiques pour les boutons, etc. */
+
+.img-wrapper {
+  max-width: 100%;
+  height: 200px; /* ou toute autre hauteur fixe que vous préférez */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Alignement vertical au centre */
+}
+
+.img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+img.img-fluid.card-img-top {
+  height: 400px;
+  width: 500px;
+}
+
+.card-body .boutton-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boutton-group .btn {
+  flex: 1;
+  margin: 0 5px; /* Espace entre les boutons */
+}
+
+@media (max-width: 768px) {
+  .card-body .boutton-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .boutton-group .btn {
+    margin: 5px 0; /* Espace entre les boutons pour les petits écrans */
+  }
+}

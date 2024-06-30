@@ -1,0 +1,65 @@
+.footer {
+  background-color: #282c34; /* Couleur de fond solide */
+  color: white; /* Couleur du texte */
+  padding: 40px 0; /* Espacement interne */
+  text-align: center; /* Centrage du texte */
+  width: 100%; /* Largeur totale */
+  box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur et la hauteur totale */
+  position: relative; /* Position relative pour éviter les problèmes de positionnement */
+  margin-top: 30px;
+}
+
+.footer .nav {
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrage horizontal */
+  flex-wrap: wrap; /* Permettre le retour à la ligne si nécessaire */
+  list-style: none; /* Suppression des puces */
+  padding: 0; /* Suppression du padding par défaut */
+  margin: 0 0 30px; /* Marge en bas pour l'espacement */
+}
+
+.footer .nav-item {
+  margin: 0 15px; /* Marge horizontale entre les éléments */
+}
+
+.footer .nav-link {
+  color: #f8f9fa; /* Couleur du texte */
+  text-decoration: none; /* Suppression du soulignement */
+  padding: 8px 0; /* Espacement interne vertical */
+  transition: color 0.3s ease; /* Transition pour un effet doux lors du survol */
+}
+
+.footer .nav-link:hover {
+  color: #adb5bd; /* Couleur du texte au survol */
+}
+
+.footer p {
+  margin: 0; /* Suppression de la marge par défaut */
+  font-size: 14px; /* Taille de police */
+}
+
+.social-icons {
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  margin-top: 20px; /* Marge en haut pour l'espacement */
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #f8f9fa; /* Couleur des icônes */
+  margin: 0 10px; /* Marge horizontale entre les icônes */
+  text-decoration: none; /* Suppression du soulignement */
+  font-size: 25px; /* Taille de police */
+  transition: color 0.3s ease; /* Transition pour un effet doux lors du survol */
+}
+
+.footer .social-icons a:hover {
+  color: #804b42; /* Couleur des icônes au survol */
+}
+.end {
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

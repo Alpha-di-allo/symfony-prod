@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lecture Message!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/messageLecture.css")}}>
+{% endblock %}
+
+{% block body %}
+
+
+
+<section class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <h1 class="titre">Votre Message</h1>
+                <p>Envoyé à : {{ message.recipient.email }}</p>
+                <div class="message-content">
+                    <h4>{{ message.message }}</h4>
+                </div>
+                <p class="message-date">{{ message.createdat|date("Y/m/d") }}</p>
+            </div>
+            <div class="col-12">
+                <a href="{{ path('app_received') }}" class="btn btn-success mt-5" role="button">Retour à la boîte de réception</a>
+            </div>
+        </div>
+    </section>
+
+        
+
+
+{% endblock %}

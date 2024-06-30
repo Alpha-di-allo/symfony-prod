@@ -1,0 +1,28 @@
+
+{% block title %}Déjà inscrit{% endblock %}
+
+{% block body %}
+    {# <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Vous êtes déjà inscrit et connecté. Vous serez redirigé vers la page d'accueil dans <span id="countdown">3</span> secondes.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> #}
+     {% include 'registration/register.html.twig' %}
+
+    <script>
+        var seconds = 3;
+        var countdownElement = document.getElementById('countdown');
+
+        function countdown() {
+            if (seconds > 0) {
+                countdownElement.textContent = seconds;
+                seconds--;
+                setTimeout(countdown, 1000);
+            } else {
+                window.location.href = "{{ path('app_accueil') }}";
+            }
+        }
+
+        countdown();
+    </script>
+{% endblock %}
+

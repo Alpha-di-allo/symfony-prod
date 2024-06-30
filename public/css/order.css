@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+  margin-top: 4%;
+  color: white;
+  font-family: sans-serif;
+}
+
+body {
+  /* background-color: #efc841; */
+  background-color: black;
+}
+
+#panier {
+  background-color: #efc841;
+  border: 1px solid #efc841;
+  color: black;
+}
+
+#info-commande {
+  background-color: #efc841;
+  border: 1px solid #efc841;
+  color: black;
+}
+
+#payer {
+  background-color: #efc841;
+  border: 1px solid #efc841;
+  color: black;
+}
+
+.card {
+  background-color: #efc841;
+  border: 1px solid black;
+}
+
+.nav-link {
+  color: #fff; /* Couleur du texte */
+  /* background-color: #007bff; Couleur de fond */
+}
+
+.nav-link.active {
+  /* background-color: #28a745; Couleur de fond lorsque le lien est actif */
+}

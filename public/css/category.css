@@ -1,0 +1,119 @@
+body {
+  background-color: #efc841;
+}
+
+.titre {
+  text-align: center;
+  margin-top: 2%;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+
+.cards a:hover {
+  color: #efc841;
+  text-decoration: none;
+}
+
+.cards-item {
+  display: flex;
+  padding: 2rem;
+}
+
+@media (min-width: 40rem) {
+  .cards-item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards-item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+}
+
+.card-image::before {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+@media (min-width: 40rem) {
+  .card-image::before {
+    padding-top: 66.6%;
+  }
+}
+
+.card-image2 {
+  background-image: url("/images/categories/151713.jpg");
+  background-size: cover; /* Redimensionner l'image pour remplir l'élément */
+  background-position: center; /* Centrer l'image dans l'élément */
+}
+
+.card-image3 {
+  background-image: url("/images/categories/side-view-double-cheeseburger-with-grilled-beef-patties-cheese-lettuce-leaf-burger-buns.jpg");
+  background-size: cover; /* Redimensionner l'image pour remplir l'élément */
+  background-position: center; /* Centrer l'image dans l'élément */
+}
+
+.card-image4 {
+  background-image: url("/images/categories/big-sandwich-hamburger-burger-with-beef-cheese-tomato-fried-bacon.jpg");
+  background-size: cover; /* Redimensionner l'image pour remplir l'élément */
+  background-position: center; /* Centrer l'image dans l'élément */
+}
+
+.card-image5 {
+  background-image: url("/images/categories/grilled-beef-hot-dog-bun-with-ketchup-generated-by-artificial-intelligence.jpg");
+  background-size: cover; /* Redimensionner l'image pour remplir l'élément */
+  background-position: center; /* Centrer l'image dans l'élément */
+}
+.card-image7 {
+  background-image: url("/images/categories/61699.jpg");
+  background-size: cover; /* Redimensionner l'image pour remplir l'élément */
+  background-position: center; /* Centrer l'image dans l'élément */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+}
+
+.card-title {
+  color: #000000;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  color: #484848;
+}
+
+.cards-button {
+  background-color: #358b32;
+  border: 1px solid #cccccc;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}

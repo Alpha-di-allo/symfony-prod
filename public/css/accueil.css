@@ -1,0 +1,353 @@
+body {
+  background-color: #efc841;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.animated-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* centrer l'element vers la gauche et le haut de moitier sa valeur initiale  */
+  z-index: 1; /* Assure que le texte est au-dessus de la vidéo */
+}
+
+.animated-text {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 4em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #000,
+    #fff,
+    #000
+  ); /*Applique un dégradé linéaire horizontal (90 degrés) allant du noir au blanc, puis de nouveau au noir.*/
+  background-repeat: no-repeat;
+  /* Empêche la répétition du fond. */
+  background-size: 80%;
+  /* Définit la taille de l'arrière-plan à 80% de la largeur de l'élément.
+ */
+  animation: animate 3s linear infinite;
+  /* Applique l'animation animate sur 3 secondes avec une progression linéaire, en boucle infinie. */
+  -webkit-background-clip: text;
+  /* Utilise le fond comme remplissage du texte, visible uniquement dans les navigateurs WebKit. */
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  /* Remplit le texte avec une couleur transparente pour permettre la visualisation du fond à travers le texte. */
+}
+
+.animated-text span {
+  opacity: 0;
+  /* Rend le texte transparent au début. */
+  animation: appear 0.5s forwards;
+  /* Applique l'animation appear sur 0.5 seconde, et maintient l'état final de l'animation (forwards). */
+  animation-delay: calc(0.1s * var(--index));
+  /* Décale le démarrage de l'animation en fonction de la variable CSS --index. que je n'ai pas utilisé  */
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+    /* Commence avec la position de fond à -500%, bien en dehors de l'élément à gauche. */
+  }
+  100% {
+    background-position: 500%;
+    /*  Termine avec la position de fond à 500%, bien en dehors de l'élément à droite. */
+  }
+}
+
+.title-container {
+  display: block;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 5%;
+  color: red;
+  text-align: center;
+  font-size: 400%;
+  font-family: sans-serif;
+}
+
+.subtitle {
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.txt-container {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.txt {
+  text-align: center;
+  font-weight: bold;
+  min-width: 90%;
+}
+
+.grid-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.column {
+  text-align: center;
+}
+
+.red {
+  color: red;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.black {
+  color: black;
+  font-size: 16px;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  /* padding: 20px; */
+  /* border-top: 1px solid #ddd; */
+  background-color: #1d1c1c;
+}
+
+.image-container {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.address-container {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+  /* padding: 20px; */
+}
+
+.address-container h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: grey;
+  font-size: 200%;
+}
+
+.address-container p {
+  font-size: 16px;
+  margin: 5px 0;
+  text-align: center;
+  color: white;
+}
+
+.hip-hop-title {
+  /* font-size: 100px;
+  margin-bottom: 20px;
+  margin-top: 0; */
+  text-align: center;
+  color: red;
+  font-family: sans-serif, cursive;
+}
+
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column;
+  }
+
+  .image-container,
+  .address-container {
+    min-width: 100%; /* Take full width on small screens */
+  }
+
+  .image-container img {
+    margin-top: 20px; /* Space between the image and the text */
+  }
+}
+
+.text-center {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #ebd0ae;
+  margin: 20px 0;
+}
+
+.fr {
+  color: green;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  /* border-top: 1px solid #ddd; */
+}
+
+/* .gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  padding: 20px;
+} */
+
+.main-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .main-image {
+  grid-column: 1 / 2;
+  position: relative;
+} */
+
+/* .main-image,
+.gallery {
+  flex: 1;
+} */
+
+.main-image img {
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  /* object-fit: cover; */
+}
+
+.discover-button {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #009879;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  align-self: center;
+}
+
+.discover-button:hover {
+  background-color: #0089b3;
+}
+
+/* .gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 20px;
+} */
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  align-content: space-between;
+  flex: 1;
+}
+
+.gallery img {
+  /* width: calc(
+    50% - 10px
+  );  Adjusts for 4 images in 2 rows, with a gap of 10px */
+  /* max-width: 300px;
+  height: auto;*/
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main-image img,
+  .gallery img {
+    height: auto;
+  }
+
+  .discover-button {
+    display: block;
+    margin: 15px auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .discover-button {
+    width: 100%;
+  }
+}
+
+/* .discover-button {
+  position: absolute;
+  bottom: 8%;
+  left: 23%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+} */

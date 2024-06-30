@@ -1,0 +1,74 @@
+{# templates/order/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" href={{asset('css/detailCommande.css')}} >
+{% endblock %}
+
+{% block title %}Détails Commande{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+<h1 class="title">Détails de la Commande</h1>
+
+{# <p>Numéro de Référence : {{ order.numRef }}</p>
+<p>Date : {{ order.orderDate|date('d/m/Y H:i:s') }}</p>
+<p>Statut : {{ order.orderStatus }}</p>
+<p>Prix TOTAL Commande : {{ order.prix / 100}}€</p> #}
+
+
+<table class="custom-table">
+            <thead>
+                <tr>
+                    <th scope="col">Numéro de Référence</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Prix TOTAL Commande</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ order.numRef }}</td>
+                    <td>{{ order.orderDate|date('d/m/Y H:i:s') }}</td>
+                    <td>{{ order.orderStatus }}</td>
+                    <td>{{ order.prix / 100 }}€</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+   
+
+
+
+
+
+<h1 class="title2">Produits Commandé </h1>
+<ul>
+    {% for orderDetail in orderDetails %}
+      <div class="card mb-3 mt-2">
+                <div class="row no-gutters">
+                    <div class="col-4">
+                     {% set productImage = orderDetail.product.image %}
+                        {% if productImage %}
+                        <img src="{{asset('images/upload/Products/' ~ productImage)}}" alt="{{ orderDetail.product.nom }}" style="max-width: 500px;" class="product-image">
+                        {% endif %}
+                         </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ orderDetail.Product.Nom }}</h5>
+                            <p class="card-text">Quantité : {{ orderDetail.Quantity }}</p>
+                            <p class="card-text">Prix : {{ orderDetail.product.prix / 100 }}€</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+    {% endfor %}
+</ul>
+</div> 
+
+
+<a class="back btn btn-primary" href="{{ path('app_user_orders') }}">Retour à mes commandes</a>
+{% endblock %}

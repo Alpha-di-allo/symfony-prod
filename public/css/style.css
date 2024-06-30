@@ -1,0 +1,155 @@
+.img-container {
+  width: 100%;
+}
+.burgerAccueil {
+  width: 100%;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.carousel-img {
+  height: 600px;
+  object-fit: fill;
+}
+.txt1 {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color: #efc841;
+  color: black;
+  text-align: center;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0%;
+}
+.txt1 p {
+  margin-bottom: 0px;
+}
+
+.first-container {
+  /* background-color: black; */
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+}
+
+@media (max-width: 300px) {
+  .first-container {
+    flex-direction: column;
+  }
+}
+
+.column1 {
+  background-color: #b15252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  width: 30%;
+}
+
+.column1 h1 {
+  color: #efc841;
+  align-items: center;
+  font-size: 300%;
+}
+.column2 {
+  background-color: black;
+  border: solid 1px #efc841;
+  text-align: center;
+  height: 75vh;
+}
+.column2 h1 {
+  text-align: center;
+  color: #efc841;
+  margin-top: 10%;
+}
+.column3 {
+  background-color: black;
+  border: solid 2px #efc841;
+  height: 75vh;
+}
+.column3 h1 {
+  color: #efc841;
+  text-align: center;
+  margin-top: 10%;
+}
+.img-container_boeuf {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  object-fit: fill;
+  margin: 0 auto;
+}
+.poulet-img {
+  object-fit: fill;
+  border-radius: 50%;
+  width: 100%;
+}
+.boeuf-img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+}
+
+.img-container_poulet {
+  width: 60%;
+  height: 60%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  object-fit: fill;
+}
+.btn-boeuf {
+  margin-top: 3%;
+}
+.btn-poulet {
+  margin-top: 3%;
+}
+
+.btnP {
+  border-radius: 10%;
+  background-color: #b15252;
+  color: white;
+  width: 40%;
+  height: 40%;
+}
+
+.btnB {
+  border-radius: 10%;
+  background-color: #b15252;
+  color: white;
+  width: 40%;
+  height: 40%;
+}
+
+.test {
+  background-color: red;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 100% de la hauteur de la fenêtre visible */
+  min-width: 100vw;
+  position: absolute;
+  padding-bottom: 8rem;
+  margin: 0;
+}
+
+main {
+  flex: 1; /* Prendra tout l'espace disponible */
+}

@@ -1,0 +1,16 @@
+easy_admin:
+  entities:
+    Order:
+      class: App\Entity\Order
+      list:
+        fields:
+          - id
+          - numRef
+          # - orderDate
+          - orderStatus
+          - user
+          - prix
+          - validePaiement
+
+          # Ajoutez d'autres champs que vous souhaitez afficher dans la liste des commandes
+      # Ajoutez d'autres options de configuration selon vos besoins

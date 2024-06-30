@@ -1,0 +1,172 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récapitulatif Commande{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/order.css")}}></link>
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">Vérification Des Informations </h1>
+
+<div class="container mt-5">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" id="panier-tab" data-toggle="pill" href="#panier">Votre Panier</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="info-commande-tab" data-toggle="pill" href="#info-commande">Information de Commande</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="payer-tab" data-toggle="pill" href="#payer">Facturation par Mail </a>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-2">
+        <div class="tab-pane fade show active" id="panier">
+            <h3>Votre Panier</h3>
+            {% for panierProduit in panierProduits %}
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="{{ asset('images/upload/Products/' ~ panierProduit.product.image) }}"
+                                     class="img-fluid" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Nom</p>
+                                    <p class="lead fw-normal mb-0">{{ panierProduit.product.nom }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Description</p>
+                                    <p class="lead fw-normal mb-0"><i class="fas fa-circle me-2" style="color: #fdd8d2;"></i>
+                                        {{ panierProduit.product.description|raw }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Quantité</p>
+                                    <p class="lead fw-normal mb-0">{{ panierProduit.quantity }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Prix Unitaire </p>
+                                    <p class="lead fw-normal mb-0">{{ panierProduit.product.prix / 100 }}€</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Total</p>
+                                    <p class="lead fw-normal mb-0">{{ (panierProduit.product.prix * panierProduit.quantity) / 100 }}€</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="tab-pane fade" id="info-commande">
+            <h3>Information de Commande</h3>
+            <div class="card mb-4">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Reference Commande</p>
+                                <p class="lead fw-normal mb-0">{{ order.numRef }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Status de votre commande </p>
+                                <p class="lead fw-normal mb-0"><i class="fas fa-circle me-2" style="color: #fdd8d2;"></i>
+                                    {{ order.OrderStatus }}</p>
+                                <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Heure de Creation </p>
+                                <p class="lead fw-normal mb-0">{{ order.orderDate|date('H:i:s') }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Date Commande</p>
+                                <p class="lead fw-normal mb-0">{{ order.orderDate|date('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Montant TTC </p>
+                                <p class="lead fw-normal mb-0">{{ montantTotalPanier / 100 }}€</p>
+                                {# <p class="lead fw-normal mb-0">{{panierProduit.product.prix / 100}}€</p> #}
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">TVA</p>
+                                <p class="lead fw-normal mb-0">{{ montantTTC / 100 }}€</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <div>
+                                <p class="small text-muted mb-4 pb-2">Commentaire Administrateur</p>
+                                <p class="lead fw-normal mb-0">{{ order.adminComment }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="payer">
+            <h3>Recevoir Facture</h3>
+            <form action="{{ path('app_facture', {orderId: order.id}) }}" method="post">
+                <button id="envoyerMailBtn" type="submit" class="btn btn-primary">Envoyer Mail</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.getElementById('envoyerMailBtn').addEventListener('click', function () {
+        // Effectuer une requête AJAX pour envoyer le mail
+        fetch('{{ path('app_facture', {'orderId': orderId}) }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Redirection vers la nouvelle page après 5 secondes
+                    setTimeout(function () {
+                        window.location.href = "{{ path('app_presentation') }}";
+                    }, 5000);
+                } else {
+                    console.error('Erreur lors de l\'envoi du mail');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi du mail :', error);
+            });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd
+
+
+
+
+{% endblock %}

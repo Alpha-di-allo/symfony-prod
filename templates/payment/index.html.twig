@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement {% endblock %}
+
+{% block body %}
+{{ parent() }}
+
+<form action="/checkout-session" method="POST">
+<button type="submit">
+{% endblock %}

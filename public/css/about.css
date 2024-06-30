@@ -1,0 +1,86 @@
+/* about.css */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #efc841;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #2e7d32; /* Green color to represent eco-friendliness */
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #388e3c; /* Another shade of green */
+}
+
+p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.eco-section {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.eco-image {
+  flex: 1;
+  margin-right: 20px;
+  max-height: 200px; /* Hauteur maximale des images */
+  overflow: hidden; /* Pour gérer les images de différentes dimensions */
+}
+
+.eco-image img {
+  width: 100%;
+  height: auto; /* Ajuste automatiquement la hauteur pour maintenir le ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.eco-content {
+  flex: 2;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .eco-section {
+    flex-direction: column;
+  }
+
+  .eco-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+    max-height: 400px;
+  }
+}

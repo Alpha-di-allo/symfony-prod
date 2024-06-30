@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/login.css")}}></link>
+{% endblock %}
+
+{% block body %}
+
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+
+   
+    
+  {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+  
+  {% endif %}
+
+
+<div class="big-img">
+    <form action="{{ path('app_login') }}" method="post">
+        <div class="container">
+                <h1>Connectez-vous</h1>
+                    <label for="username">Email:</label>
+                    <input class="form-control" type="text" id="username" placeholder="Veuillez entrez votre email" name="_username" value="{{ last_username }}">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" name="_password" placeholder="Veuillez entrer votre mot de passe">
+                    <button class="btn-log btn-primary" type="submit">Connexion</button>
+                </form>
+    <div class="forgot-password-checkbox" style="cursor: pointer;" onclick="redirectToForgotPassword()">
+    <input type="checkbox" id="forgot-password" name="forgot-password">
+    <label for="forgot-password" class="forgot-password-label" >Mot de passe oublié</label>
+</div>
+
+<script>
+    function redirectToForgotPassword() {
+        window.location.href = "{{ path('app_forgot_password_request') }}";
+    }
+</script>
+
+        </div>
+</div>
+{% endblock %}
+
+    
+    
+

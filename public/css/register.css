@@ -1,0 +1,42 @@
+.carrer {
+  /* margin-top: 3%; */
+  justify-content: center;
+  width: 45%;
+  /* background-color: transparent; */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: black; */
+  border-radius: 2%;
+}
+.carrer .codeP {
+  justify-content: center;
+}
+
+.titre {
+  text-align: center;
+  margin-top: 2%;
+  color: #efc841;
+}
+
+body {
+  background-image: url("https://media.istockphoto.com/id/962157716/fr/vectoriel/burger-aux-ingr%C3%A9dients-de-vol-sur-fond-blanc-gravure-de-vintage-vector-noir.jpg?s=1024x1024&w=is&k=20&c=pAuyxEy3rbpmfnnYPeTgO8MuZZGI5FGCWLme9KwwH7s=");
+  font-family: sans-serif;
+}
+
+/* Ajoutez ces styles dans votre fichier CSS */
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name,
+.lieux,
+.codeP,
+.tel,
+.email,
+.password,
+.button {
+  width: 48%; /* Ajustez la largeur selon vos besoins */
+}

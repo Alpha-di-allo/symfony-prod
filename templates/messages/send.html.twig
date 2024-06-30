@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/send.css")}}>
+{% endblock %}
+
+{% block title %}Messagerie!{% endblock %}
+
+{% block body %}
+
+<section class="container">
+    <div class="row">
+        <div class="col titre">
+            <h1>Envoyer un message </h1>
+            {{form(form)}}
+            <a href="{{path('app_messages')}}" class="btn btn-success mt-5" role="button">
+                retour accueil 
+            </a>
+        </div>
+    </div>
+</section>
+
+        
+
+
+{% endblock %}

@@ -1,0 +1,149 @@
+/* body {
+  background-color: #efc841;
+} */
+
+/* Styles pour le conteneur principal */
+/* .container { */
+/* margin-top: 50px; Marge en haut du conteneur */
+/* } */
+
+/* Styles pour l'image */
+/* .img-fluid {
+  max-width: 100%;
+  height: auto;
+} */
+
+/* Styles pour le tableau */
+/* .table { */
+/* width: 100%; Largeur du tableau */
+/* border-collapse: collapse; Fusion des bordures de cellules */
+/* } */
+
+/* Styles pour les cellules du tableau */
+/* .table th, */
+/* .table td { */
+/* padding: 8px; Espacement intérieur des cellules */
+/* border: 1px solid #ddd; Bordure de chaque cellule */
+/* } */
+
+/* Style pour les en-têtes de colonne du tableau */
+/* .table th { */
+/* background-color: #f2f2f2; Couleur de fond des en-têtes de colonne */
+/* text-align: left; Alignement du texte à gauche */
+/* } */
+
+/* .btn-success {
+  width: 25%;
+  border-radius: 15%;
+  margin-left: 35%;
+} */
+
+/* .retour {
+  width: 25%;
+  border-radius: 15%;
+  margin-left: 35%;
+} */
+
+body {
+  background-color: #efc841;
+}
+
+/* Styles pour le conteneur principal */
+.container {
+  margin-top: 50px; /* Marge en haut du conteneur */
+}
+
+/* Styles pour l'image */
+.img-fluid {
+  max-width: 50%;
+  height: auto;
+}
+
+/* Styles pour le tableau */
+.table {
+  width: 100%; /* Largeur du tableau */
+  border-collapse: collapse; /* Fusion des bordures de cellules */
+}
+
+/* Styles pour les cellules du tableau */
+.table th,
+.table td {
+  padding: 8px; /* Espacement intérieur des cellules */
+  border: 1px solid #ddd; /* Bordure de chaque cellule */
+}
+
+/* Style pour les en-têtes de colonne du tableau */
+.table th {
+  background-color: #588041f3; /* Couleur de fond des en-têtes de colonne */
+  text-align: left; /* Alignement du texte à gauche */
+}
+
+.product-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xxx-large;
+  color: black;
+  margin: 15px 30px;
+  font-style: italic;
+  font-family: sans-serif;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap; /*  Pour permettre le wrapping sur les petits écrans */
+  justify-content: space-between;
+}
+
+.product-image {
+  flex: 1 1 45%;
+  min-width: 45%;
+  max-width: 100%;
+  /* height: auto; */
+  margin: 2%;
+}
+
+.product-details {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column; /* Affiche les détails du produit en colonne */
+  justify-content: flex-start;
+  /* width: 100%; */
+  max-width: 100%; /* Largeur fixe pour le tableau */
+  margin-left: 5%;
+  padding: 2%;
+  box-sizing: border-box; /* Inclut les bordures et les marges dans la largeur */
+}
+
+.return {
+  width: 15%;
+  /* border-radius: 15%; */
+  margin: 0 auto;
+  margin-bottom: 3%;
+}
+
+@media (max-width: 968px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-details,
+  .product-image {
+    flex: 1 100%;
+    max-width: 100%; /* Enlève la largeur fixe pour les petits écrans */
+    margin: 0;
+    /* width: 100%; */
+  }
+
+  .product-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .return {
+    width: 100%;
+    margin: 20px 0;
+  }
+}

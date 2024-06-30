@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset('css/success.css')}}>
+{% endblock %}
+
+{% block title %}Paiement Reussi{% endblock %}
+
+{% block body %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <script type="text/javascript">
+         // Rediriger vers l'URL de l'OrderController après 5 secondes
+         setTimeout(function(){
+             window.location.href = "{{ path('app_order') }}";
+         }, 5000); // 5000 millisecondes = 5 secondes
+     </script>
+</head>
+<body>
+  <section>
+    <h1 class="title">Bon  Appétit !!! </h1>
+    <div class="container-img">
+      <img class="imgSuccess" src="{{asset("images/upload/Products/burgerSuccess.jpg")}}" alt="img_burger">
+    </div>
+  </section>
+</body>
+{% endblock %}
+

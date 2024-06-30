@@ -1,0 +1,163 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre Panier{% endblock %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" href={{asset('css/panier.css')}} >
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .icon-add{width:40px; height:40px ; margin-left: 50px; margin-bottom:2px}
+    .icons{display:flex}
+</style>
+
+<h1 class="mt-4 mb-4 titre">Votre Panier</h1>
+{% if app.user %}
+    {% if panierProduits is not empty %}
+        <div class="container">
+            {% for panierProduit in panierProduits %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><span class="h4">{{ panierProduit.quantity }} {{panierProduit.product.nom}} ajouté au panier </span></p>
+
+                        <div class="card mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 p-0">
+                                        {% if panierProduit.product is not null %}
+                                            <img src="{{ asset('images/upload/Products/' ~ panierProduit.product.image) }}"
+                                                 class="img-fluid" alt="Generic placeholder image">
+                                        {% endif %}
+                                    </div>
+                                    {# <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Nom</p>
+                                            <p class="lead fw-normal mb-0">{{ panierProduit.product.nom }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Description</p>
+                                            <p class="lead fw-normal mb-0">{{ panierProduit.product.description|raw }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Quantité</p>
+                                            <p class="lead fw-normal mb-0">{{ panierProduit.quantity }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Prix Unitaire</p>
+                                            <p class="lead fw-normal mb-0">{{ panierProduit.product.prix / 100 }}€</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Total TTC</p>
+                                            <p class="lead fw-normal mb-0">{{ (panierProduit.product.prix * panierProduit.quantity) / 100 }}€</p>
+                                        </div>
+                                    </div> #}
+
+
+                                     <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="small text-muted mb-1 pb-1 text-bold">Nom</p>
+                                        <p class="lead fw-normal mb-0">{{ panierProduit.product.nom }}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="small text-muted mb-1 pb-1 text-bold">Description</p>
+                                        <p class="lead fw-normal mb-0">{{ panierProduit.product.description|raw }}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="small text-muted mb-1 pb-1 text-bold">Quantité</p>
+                                        <p class="lead fw-normal mb-0">{{ panierProduit.quantity }}</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="small text-muted mb-1 pb-1 text-bold">Total TTC</p>
+                                        <p class="lead fw-normal mb-0">{{ panierProduit.product.prix * panierProduit.quantity / 100 }}€</p>
+                                    </div>
+                                    </div>
+                                    </div>
+                                      {# <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">TVA</p>
+                                            <p class="lead fw-normal mb-0">{{ (tva) / 100 }}€</p>
+                                        </div>
+                                    </div> #}
+                                    {# <div class="icons">
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{ path('delete_panier', {id: panierProduit.id}) }}"><img class="icon-add"
+                                                                                               src="images/upload/Products/icones/retirer-le-panier.png"
+                                                                                               alt="icon-delete-panier"></a>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <a href="{{ path('add_panier', {id: panierProduit.product.id}) }}"><img class="icon-add"
+                                                                                                                 src="images/upload/Products/icones/icons8-panier-ajouter-100.png"
+                                                                                                                 alt="icon-add-panier"></a>
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <a href="{{ path('lessOne_app', {id: panierProduit.product.id}) }}"><img class="icon-add"
+                                                                                                                     src="images/upload/Products/icones/icone-panier-moins1.png"
+                                                                                                                     alt="icon-panier_1"></a>
+                                        </div>
+                                    </div> #}
+
+                                     <div class="col-md-12 mt-3 d-flex justify-content-center icons">
+                                        <a href="{{ path('delete_panier', {id: panierProduit.id}) }}">
+                                            <img class="icon-add" src="{{ asset('images/upload/Products/icones/retirer-le-panier.png') }}" alt="icon-delete-panier">
+                                        </a>
+                                        <a href="{{ path('add_panier', {id: panierProduit.product.id}) }}">
+                                            <img class="icon-add" src="{{ asset('images/upload/Products/icones/icons8-panier-ajouter-100.png') }}" alt="icon-add-panier">
+                                        </a>
+                                        <a href="{{ path('lessOne_app', {id: panierProduit.product.id}) }}">
+                                            <img class="icon-add" src="{{ asset('images/upload/Products/icones/icone-panier-moins1.png') }}" alt="icon-panier_1">
+                                        </a>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="float-end">
+                        <p class="mb-0 me-5 d-flex align-items-center">
+                            <span class="medium mb-5 me-2 ">Montant de votre commande {{ montantTotalPanier / 100 }}€</span> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {# <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-light btn-lg me-2 back "><a
+                        href="{{ path('app_product_vu_client') }}">retourner au catalogue</a></button>
+                <button type="button" class="btn btn-success btn"><a href="{{ path('app_checkout',{id:panier.id}) }}">Commander</a>
+                </button>
+            </div> #}
+            <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-primary btn me-2 back">
+        <a href="{{ path('app_product_vu_client') }}" class="text-white">Retourner au catalogue</a>
+    </button>
+    <button type="button" class="btn btn-success btn">
+        <a href="{{ path('app_checkout', {id: panier.id}) }}" class="text-white">Commander</a>
+    </button>
+</div>
+        </div>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/received.css")}}>
+{% endblock %}
+
+
+{% block title %}Messagerie!{% endblock %}
+
+{% block body %}
+
+{# <section class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titre">Boite de Reception </h1>
+            {% if app.user %}
+            <p> Vous avez Recus :{{ app.user.received|length}} messages </p>
+        </div>
+            <div class="col-3">Expediteur</div>
+            <div class="col-3">sujet</div>
+            <div class="col-3">Date de reception</div>
+            <div class="col-3">Actions</div>
+            {% for message in app.user.received %}
+                {% set bold =""%}
+                {% if message.isRead == 0 %}
+                    {% set bold ="fw-bold"%}
+                {% endif %}
+
+                <div class="col-3 {{bold}}">{{message.sender.email}}</div>
+                <div class="col-3 {{bold}}"><a href="{{path('app_read',{id:message.id}) }}">{{message.title}}</a></div>
+                 <div class="col-3 {{bold}}">{{message.createdAt | date}} </div>
+                 <div class="col-3"><a href="{{path('app_deleteMessage',{id:message.id}) }}"<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-dash" viewBox="0 0 16 16">
+                <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"/>
+                 <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-5.5 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5"/>
+                </svg></a></div>
+
+            {% endfor %} #}
+
+
+            <section class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="title">Boite de Reception</h1>
+            {% if app.user %}
+                <p>Vous avez reçu : {{ app.user.received|length }} messages</p>
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expéditeur</th>
+                        <th>Sujet</th>
+                        <th>Date de réception</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in app.user.received %}
+                        {% set bold = "" %}
+                        {% if message.isRead == 0 %}
+                            {% set bold = "fw-bold" %}
+                        {% endif %}
+                        <tr class="{{ bold }}">
+                            <td>{{ message.sender.email }}</td>
+                            <td><a href="{{ path('app_read', { id: message.id }) }}">{{ message.title }}</a></td>
+                            <td>{{ message.createdAt | date }}</td>
+                            <td>
+                                <a href="{{ path('app_deleteMessage', { id: message.id }) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-dash" viewBox="0 0 16 16">
+                                        <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"/>
+                                        <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-5.5 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="offcanvasExampleLabel">Votre message box </h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+    <div class="list-group">
+      <a href="{{ path('app_messages')}}" class="list-group-item list-group-item-action ">Accueil</a>
+    </div>
+    <div class="list-group">
+      <a href="{{ path('app_received')}}" class="list-group-item list-group-item-action active ">Boite de Reception </a>
+    </div>
+    <div class="list-group">
+      <a href="{{ path('app_sent')}}" class="list-group-item list-group-item-action ">Messages Envoyés</a>
+    </div>
+       
+  </div>
+</div>
+        
+
+            <div class="col-12 text-center">
+                <a href="{{path('app_messages')}}" class="btn btn-primary mt-5 retour" role="button"> retour accueil</a>
+            </div>
+    </div>
+</section>
+
+        
+{# {% endif %} #}
+
+{% endblock %}

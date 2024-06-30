@@ -1,0 +1,157 @@
+body {
+  background-color: #efc841;
+  font-family: sans-serif;
+}
+/* Ensure cards have the same height */
+.card {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin-bottom: 1rem;
+  max-width: 600px; /* Adjust the max-width as needed */
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+/* Ensure card-body content is spaced out horizontally */
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow: hidden; /* Prevent overflowing content */
+  box-sizing: border-box;
+}
+
+/* Style the product images */
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 150px; /* Adjust the max-height as needed */
+}
+
+/* Ensure no-gutters class works correctly */
+.row.no-gutters {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Ensure titles and text are aligned and spaced properly */
+.card-title,
+.card-text {
+  flex-grow: 1;
+  flex-basis: 0;
+  margin: 2;
+  text-align: center;
+  /* overflow: hidden; Prevent overflowing content */
+}
+
+.card-title {
+  text-align: left;
+  color: red;
+}
+
+.card-text:last-child {
+  text-align: right;
+}
+
+/* Ensure cards are responsive */
+@media (max-width: 576px) {
+  .row.no-gutters {
+    flex-direction: column;
+    max-width: 100px;
+  }
+
+  .card-body {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .card-title,
+  .card-text {
+    text-align: left;
+    width: 100%;
+    text-overflow: ellipsis; /* Add ellipsis if the text overflows */
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+  .card-text:last-child {
+    text-align: left;
+  }
+
+  .product-image {
+    max-height: 100px; /* Adjust as needed for smaller screens */
+    object-fit: cover;
+  }
+}
+
+/* styles.css */
+/* styles.css */
+
+/* Container principal */
+.container {
+  margin-top: 20px;
+}
+
+/* Tableau personnalisé */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse; /* Fusionner les bordures des cellules */
+  margin-bottom: 20px;
+}
+
+/* Styles des en-têtes de colonnes */
+.custom-table th {
+  background-color: #408b42; /* Vert pour les en-têtes de colonnes */
+  color: white;
+  padding: 12px; /* Espacement à l'intérieur des cellules */
+  text-align: center; /* Centrer le texte */
+  border: 1px solid #ddd; /* Bordure fine */
+}
+
+/* Styles des cellules de données */
+.custom-table td {
+  padding: 8px; /* Espacement à l'intérieur des cellules */
+  text-align: center; /* Alignement du texte à gauche */
+  border: 1px solid #ddd; /* Bordure fine */
+}
+
+/* Lignes de données avec couleur de fond alternée */
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Couleur de fond pour les lignes paires */
+}
+
+/* Au survol des lignes */
+.custom-table tbody tr:hover {
+  background-color: #ddd; /* Couleur de fond au survol */
+}
+
+.back {
+  max-width: 25%;
+  margin: 0 auto;
+}
+
+.back:hover {
+  background-color: #408b42;
+}
+
+.row {
+  height: 100px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 600px;
+}
+.title {
+  text-align: center;
+}
+.title2 {
+  text-align: center;
+}

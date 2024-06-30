@@ -1,0 +1,83 @@
+   {% block stylesheets %}
+   <link rel="stylesheet" href={{asset("css/header.css")}}
+   {% endblock %}
+
+   
+
+   <header>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('../logo/ventalis.png') }}" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path("app_accueil") }}">Accueil <span class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("app_register") }}">S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("app_product_vu_client") }}">Catalogue</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path("app_presentation") }}">Présentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_category') }}">Categorie</a>
+                </li>
+                <div class="logo-container">
+                    <div class="logo">
+                        {% if app.user %}
+                            {% set nombreInPanier = nombreInPanier() %}
+                            <li class="nav-item ms-auto" style="display:flex; align-items:center; font-size:35px;justify-content:flex-end">
+                                <a style="position:relative;" href="{{ path('app_panier') }}">
+                                    {% if nombreInPanier > 0 %}
+                                        <i class="bi bi-cart3"><span class="notification">{{ nombreInPanier }}</span></i>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+            </ul>
+            <div class="ms-auto d-flex">
+                {% if is_granted ('ROLE_SUPER_ADMIN') or is_granted ('ROLE_ADMIN') %}
+                    <a class="btn btn-success my-2 my-sm-0 me-2 intranet" href="{{ path("admin") }}" role="button">Intranet</a>
+                {% endif %}
+                {% if is_granted ('ROLE_USER') and app.user %}
+                    <a class="btn btn-warning my-2 my-sm-0 me-2 myEspace" href="{{ path("app_user_orders") }}" role="button">Mon Espace</a>
+                {% endif %}
+                <form class="d-flex ms-auto">
+                    {% if app.user %}
+                        <a class="btn btn-danger my-2 my-sm-0 log" href="{{ path("app_logout") }}" role="button">Deconnexion</a>
+                    {% else %}
+                        <a class="btn btn-danger my-2 my-sm-0 log" href="{{ path("app_login") }}" role="button">Connexion</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+   </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</header>

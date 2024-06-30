@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Messagerie!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/sent.css")}}>
+{% endblock %}
+
+{% block body %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titre">Messages Envoyés</h1>
+        </div>
+        {% if app.user %}
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Envoyé à</th>
+                        <th>Sujet</th>
+                        <th>Date d'envoi</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in app.user.sent %}
+                        {% set bold = "" %}
+                        {% if message.isRead == 0 %}
+                            {% set bold = "fw-bold" %}
+                        {% endif %}
+                        <tr class="{{ bold }}">
+                            <td>{{ message.recipient.email }}</td>
+                            <td><a href="{{ path('app_read', {id: message.id}) }}">{{ message.title }}</a></td>
+                            <td>{{ message.createdAt | date }}</td>
+                            <td>
+                                <a href="{{ path('app_deleteMessage', {id: message.id}) }}">
+                                    <i class="bi bi-envelope-dash-fill text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 text-center">
+            <a href="{{ path('app_messages') }}" class="btn btn-success mt-5 retour" role="button">Retour accueil</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+
+
+
+
+
+
+        
+
+{% endblock %}

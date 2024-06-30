@@ -1,0 +1,16 @@
+vich_uploader:
+  db_driver: orm
+
+  mappings:
+    products:
+      uri_prefix: /images/upload/Products
+      upload_destination: "%kernel.project_dir%/public/images/upload/Products"
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+    category_images: # Nom du mapping, vous pouvez le nommer comme vous le souhaitez
+      uri_prefix: /images/categorie # Préfixe de l'URI pour accéder aux images
+      upload_destination: "%kernel.project_dir%/public/images/categorie" # Répertoire de destination pour stocker les images téléchargées
+      namer: Vich\UploaderBundle\Naming\OrignameNamer # Stratégie de nommage des fichiers téléchargés
+      inject_on_load: true # Activer l'injection des instances File lors du chargement des entités depuis la base de données
+      delete_on_update: true # Supprimer l'image précédente lors de la mise à jour de l'entité
+      delete_on_remove: true # Supprimer l'image lors de la suppression de l'entité correspondante

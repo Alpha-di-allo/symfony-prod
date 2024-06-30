@@ -1,0 +1,66 @@
+body {
+  background-color: #efc841;
+  font-family: sans-serif;
+}
+
+/* messages.css */
+
+.container {
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-12,
+.col-6 {
+  margin-bottom: 20px;
+}
+
+.message-content {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+.message-content h4 {
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.message-date {
+  color: #999999;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.btn-success {
+  background-color: #408b42;
+  color: #ffffff;
+  border-color: #408b42;
+  margin: 0 auto;
+}
+
+.btn-success:hover {
+  background-color: #408b42;
+  border-color: #408b42;
+}
+
+.btn-success:focus,
+.btn-success.focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
+.titre {
+  text-align: center;
+}

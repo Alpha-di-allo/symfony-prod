@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presentation{% endblock %}
+
+ {% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/presentation.css")}}>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <h1> QUI SOMMES NOUS ? ✅</h1>
+    <div class="img-container">
+        <img class="img" src= "{{asset('images/upload/Products/heureux-serveur-servant-nourriture-groupe-amis-joyeux-dans-pub (1).jpg')}}" alt="serveur_ventalis">
+     <div class="parDessus">
+      <h1>Ventalis Burger</h1>
+      <p> Vous propose sa gamme de burger haut de gamme personnalisable a souhait pour tous les gouts de nos consommateurs <br>
+      nos produits sont entierements confectionné de facon artisanale avec pour la plupart des produits locaux et bio afin de garantir un produit de qualité </p>
+  </div>
+</div>
+</div>
+
+
+<div class="container"> 
+    <div class="findUs">
+        <h1>LE PAIN: </h1>
+        <p> farine et graine bio  </p>
+        <p> une mie moelleuse avec notre pain fraichement préparé <br>pétrie avec ferveur pour une experience à chaque tranche  </p> 
+    </div>
+    <div class="img-resto">
+        <img class="img1" src="images/upload/Products/petits-pains-burger-graines-sesame-farine-table.jpg">
+    </div>
+</div>
+
+
+<div class="container"> 
+    <div class="img-resto">
+        <img class="img2" src="images/upload/Products/nourriture-delicieuse-plaque-high-angle.jpg">
+    </div>
+    <div class="findUs">
+        <h1>LE FROMAGE: </h1>
+        <p> Eveillez vos papilles avec notre fromage artisanal  </p>
+        <p> savament affiné pour une exprerience gustative inoubliable </p> 
+    </div>
+</div>
+
+
+
+
+<div class="container"> 
+    <div class="findUs">
+        <h1>LA VIANDE : </h1>
+        <p> viande de premier choix </p>
+        <p> savourez une  qualité imcomparable de notre viande soigneusement selectionné<br>
+        ravivez vos sens et votre instinct de carnivore  </p> 
+    </div>
+    <div class="img-resto">
+        <img class="img3" src="images/upload/Products/angle-eleve-viande-aux-herbes-ail.jpg">
+    </div>
+</div>
+
+
+
+<div class="container"> 
+    <div class="img-resto">
+        <img class="img1" src="images/upload/Products/scene-cafe-typique-paris.jpg">
+    </div>
+    <div class="findUs">
+        <h1>OU NOUS RETROUVER: </h1>
+        <p> au 104 rue des delices 75016 Paris </p>
+        <p> tous les jours de 13h a 23h sauf le dimanche </p> 
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

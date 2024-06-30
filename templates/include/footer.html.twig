@@ -1,0 +1,21 @@
+  {% block stylesheets %}
+   <link rel="stylesheet" href={{asset("css/footer.css")}}
+   {% endblock %}
+
+<footer class="footer">
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a href="{{path('app_terms')}}" class="nav-link">Condition générale de vente</a></li>
+        <li class="nav-item"><a href="{{ path('app_contact') }}" class="nav-link">Nous Contacter</a></li>
+        <li class="nav-item"><a href="{{ path('app_about') }}" class="nav-link">About</a></li>
+    </ul>
+    <div class="social-icons">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <p class="end">© 2024 Ventalis Burger, Inc</p>
+</footer>
+
+
+

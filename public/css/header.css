@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Empêche le défilement horizontal sur toute la page */
+}
+
+.header {
+  width: 100%;
+  max-width: 100vw; /* Empêche le header de dépasser la largeur de la fenêtre */
+  overflow-x: hidden; /* Empêche le défilement horizontal sur le header */
+}
+
+.navbar {
+  width: 100%;
+  max-width: 100vw; /* Empêche la navbar de dépasser la largeur de la fenêtre */
+  overflow-x: hidden; /* Empêche le défilement horizontal sur la navbar */
+}
+
+.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 100%; /* Empêche le conteneur de dépasser la largeur de la fenêtre */
+}
+
+.navbar-brand img.logo {
+  max-width: 100%;
+  height: auto; /* Assure que le logo reste bien dimensionné */
+}
+
+.navbar-nav .nav-item .nav-link {
+  white-space: nowrap; /* Empêche les liens de se briser en plusieurs lignes */
+}
+
+.ms-auto .btn {
+  margin-right: 10px; /* Espace entre les boutons */
+}
+
+.ms-auto .btn:last-child {
+  margin-right: 0; /* Retire la marge droite du dernier bouton */
+}
+
+.nav-link {
+  color: white;
+}
+
+.navbar .btn {
+  margin-right: 10px;
+}
+
+.navbar .btn:last-child {
+  margin-right: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Centre le logo verticalement */
+}
+
+.logo-container {
+  justify-content: center;
+  margin-left: 200px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.panier {
+  position: relative;
+}
+
+.notification {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  left: 15px;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    justify-content: center; /* Centre les éléments dans le menu déroulant */
+  }
+
+  .navbar-nav {
+    margin-left: 0;
+  }
+
+  .logo-container {
+    flex-grow: 0;
+  }
+
+  @media (max-width: 576px) {
+    .navbar-collapse {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .navbar-collapse .ms-auto {
+      order: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .navbar-collapse form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

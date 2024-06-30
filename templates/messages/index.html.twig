@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messagerie!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset("css/messages.css")}}>
+{% endblock %}
+
+{% block body %}
+
+<div class="center-container">
+  <div class="carrer">
+    <section class="container">
+      <div class="row">
+        <div class="col titre">
+            <h1>Messagerie</h1>
+            <p>Résumé de la messagerie</p>
+            {% if app.user %}
+            <p>Recus : {{ app.user.received|length}} </p>
+            <p>Envoyer : {{app.user.sent|length}}</p>
+            {% else %}
+            <p>Veuillez vous connecter pour voir vos messages </p>
+            {% endif %}
+            <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Voir mes Dossiers
+            </a>
+            <a href="{{path('app_send')}}" class="btn btn-success">Envoyer un message</a>
+        </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="offcanvasExampleLabel">Votre message box </h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+    <div class="list-group">
+      <a href="{{ path('app_messages')}}" class="list-group-item list-group-item-action active">Accueil</a>
+    </div>
+    <div class="list-group">
+      <a href="{{ path('app_received')}}" class="list-group-item list-group-item-action ">Boite de Reception </a>
+    </div>
+    <div class="list-group">
+      <a href="{{ path('app_sent')}}" class="list-group-item list-group-item-action ">Messages Envoyés</a>
+    </div>
+  </div>
+</div>
+</div>
+        
+
+
+{% endblock %}

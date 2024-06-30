@@ -1,0 +1,77 @@
+/* Ajoutez ce style à votre fichier CSS ou dans un bloc <style> dans votre fichier Twig */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #efc841;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+  color: #000000;
+  font-size: 2em;
+  margin-top: 3%;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+thead {
+  background-color: #408b42;
+  color: #ffffff;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tr:last-of-type {
+  border-bottom: 2px solid #408b42;
+}
+
+a {
+  color: #408b42;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  text-align: center;
+  color: #555;
+}
+
+.retour {
+  width: 20%;
+  margin-top: 60px;
+  margin-left: 126px;
+}
+
+.title2 {
+  text-align: center;
+  margin: 20px 0;
+  color: #000000;
+  font-size: 2em;
+  margin-top: 3%;
+}

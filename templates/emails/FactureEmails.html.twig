@@ -1,0 +1,73 @@
+{# templates/emails/FactureEmails.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture de votre commande</title>
+    <style>
+        /* Styles CSS pour le contenu de l'e-mail */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+        }
+        .invoice-details {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .invoice-details h2 {
+            margin-top: 0;
+        }
+        .invoice-details p {
+            margin: 5px 0;
+        }
+        .thank-you {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+           <img src="{{ DOMAIN_NAME ~ asset('logo/ventalis.png')}}"  alt="Your Logo">
+        </div>
+        <div class="invoice-details">
+            <h2>Facture de votre commande</h2>
+            <p><strong>Numéro de commande :</strong> {{ order.numRef }}</p>
+            <p><strong>Date de commande :</strong> {{ order.orderDate|date('d/m/Y') }}</p>
+            <p><strong>Montant total :</strong> {{ order.prix / 100 }}€</p>
+            <!-- Ajoutez d'autres détails de facturation ici -->
+        </div>
+        <p class="thank-you">Merci pour votre commande !</p>
+    </div>
+
+     <script>
+        // Redirection vers votre site après 5 secondes
+        setTimeout(function() {
+            window.location.href = "http://127.0.0.1:8000";
+        }, 5000); // 5000 millisecondes = 5 secondes
+    </script>
+
+</body>
+</html>

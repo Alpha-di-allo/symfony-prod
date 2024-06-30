@@ -1,0 +1,65 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+  domain_name: "%env(DOMAIN_NAME)%"
+  stripe_secret_key: "%env(STRIPE_SECRET_KEY_TEST)%"
+services:
+  App\Security\UsersAuthenticator:
+  # App\EventSubscriber\CheckLoggedInSubscriber:
+  #   arguments:
+  #     $session: "@session"
+  #     $urlGenerator: "@router.generator"
+  #     $requestStack: "@request_stack"
+  #     $security: "@security.helper"
+  #   tags:
+  #     - { name: kernel.event_subscriber }
+
+  App\Service\PanierNotif:
+    class: App\Service\PanierNotif
+    arguments:
+      $entityManager: "@doctrine.orm.entity_manager"
+      $panierRepository: '@App\Repository\PanierRepository'
+
+  App\EventSubscriber\StaffToUser:
+    arguments:
+      $employeToUser: '@App\Service\EmployeToUser' # Injection du service EmployeToUser
+    tags:
+      - { name: kernel.event_subscriber }
+  App\EventSubscriber\EasyAdminCartSubscriber:
+    arguments: ["@doctrine.orm.entity_manager"]
+    tags:
+      - { name: kernel.event_subscriber }
+  App\EventSubscriber\EasyAdminSubscriberUserPasswordChange:
+    arguments:
+      $entityManager: "@doctrine.orm.entity_manager"
+      $passwordHasher: "@security.password_hasher"
+    tags:
+      - { name: kernel.event_subscriber }
+  App\Entity\PanierProduit:
+  App\Service\MatriculeGenerator:
+    autowire: true
+
+  App\EventListener\UserMatriculeListener:
+    autowire: true
+    tags:
+      - { name: doctrine.event_listener, event: prePersist }
+
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  App\:
+    resource: "../src/"
+    exclude:
+      - "../src/DependencyInjection/"
+      # - "../src/Entity/"
+      - "../src/Kernel.php"
+
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones

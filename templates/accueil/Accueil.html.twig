@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Ventalis!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset('css/accueil.css')}}>
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="video-container">
+  <video autoplay loop muted plays-inline class="video" id="myVideo">
+    <source src="media\ventalisPromo.mp4" type="video/mp4">
+  </video>
+ <div class="animated-text-container">
+    <p class="animated-text">Ventalis Burger </p>
+  </div>
+
+</div>
+
+
+<div class="title-container">
+ <h2 class="title"> VENTALIS BURGER : </h2>
+ <h3 class="subtitle">LE MYTHIQUE SMASH BURGER ARRIVE CHEZ VOUS</h3>
+</div> 
+
+<div class"txt-container">
+  <div class="txt">
+    <p> Ventalis Burger : C'est  une passion brûlante pour le Smash Burger et l’ambition audacieuse de la partager avec le monde. </p>
+
+    <p>De cette vision est né « Ventalis burger . Le nom résonnait comme une promesse : une promesse de saveurs inoubliables, de qualité exceptionnelle, et d’une expérience culinaire qui vous emportent vers des horizons gourmands inexplorés.</p>
+
+    <p>Cette histoire est bien plus qu’un simple récit. C’est un appel à l’exploration des saveurs, une déclaration d’amour pour le Smash Burger, et une promesse de passion culinaire à l’état pur.</p>
+
+    <p>Venez faire partie de l’histoire, rejoignez « Ventalis Burger » et laissez-vous emporter par l’ultime épopée gourmande.</p>
+
+    <p>Chaque bouchée est un rêve de saveurs devenu réalité.</p>
+  </div>
+</div>
+
+
+ <div class="grid-container">
+        <div class="column">
+            <div class="number red">7</div>
+            <div class="text black">Restaurants</div>
+        </div>
+        <div class="column">
+            <div class="number red">3</div>
+            <div class="text black">Ouverture à Venir</div>
+        </div>
+        <div class="column">
+            <div class="number red">100%</div>
+            <div class="text black">De Client Satisfait</div>
+        </div>
+    </div>
+
+  <div class="info-container">
+        <div class="image-container">
+            <img src="images/upload/Products/whereFindUs.jpg" alt="Carte de la France avec les restaurants">
+        </div>
+        <div class="address-container">
+            <h1 class="hip-hop-title">OU NOUS RETROUVER ? </h1>
+            <h2>Adresses des Restaurants</h2>
+            <p>Restaurant 1: 987 Boulevard du Havre, Havre</p>
+            <p>Restaurant 2: 111 Rue de Nantes, Nantes</p>
+            <p>Restaurant 3: 321 Rue de Bordeaux, Bordeaux</p>
+            <p>Restaurant 4: 123 Rue de Paris, Paris</p>
+            <p>Restaurant 5: 789 Boulevard de Strasbourg, Strasbourg</p>
+            <p>Restaurant 6: 456 Avenue de Lyon, Lyon</p>
+            <p>Restaurant 7: 654 Avenue de Toulouse, Toulouse</p>
+       
+            <!-- Ajoutez plus de descriptions d'adresses si nécessaire -->
+        </div>
+    </div>
+
+    <div class="text-center">
+        <h2 class="fr">Des Produits 100% Français</h2>
+        {# <p>bio certifié</p> #}
+    </div>
+
+  <div class="gallery-container">
+        <div class="main-image">
+            <img src="{{asset('images/upload/Products/mapFrance.jpg')}}" alt="Main image">
+        </div>
+        <div class="gallery">
+            <img src="{{asset('images/upload/Products/nourriture-delicieuse-plaque-high-angle.jpg')}}" alt="Gallery image 1">
+            <img src="{{asset('images/upload/Products/angle-eleve-viande-aux-herbes-ail.jpg')}}" alt="Gallery image 2">
+            <img src="{{asset('images/upload/Products/petits-pains-burger-graines-sesame-farine-table.jpg')}}" alt="Gallery image 3" style="height:100%">
+            <img src="{{asset('images/upload/Products/healthy-vegetables-old-dark-background.jpg')}}" alt="Gallery image 4">
+        </div>
+    </div>
+     <a href="{{ path("app_product_vu_client") }}" class="discover-button">Découvrez-nos Produits</a> 
+
+
+<script>
+var video = document.getElementById("myVideo");
+  var cutStartDuration = 5; // Durée à couper au début de la vidéo (en secondes)
+  var cutEndDuration = 5; // Durée à couper à la fin de la vidéo (en secondes)
+
+  video.addEventListener("loadedmetadata", function() {
+    // Démarre la vidéo après un court délai pour éviter les problèmes de lecture
+    setTimeout(function() {
+      video.currentTime = cutStartDuration; // Commence la lecture après la partie que nous voulons couper
+      video.play(); // Commence la lecture
+    }, 500); // Délai en millisecondes avant de démarrer la lecture (0.5 seconde dans cet exemple)
+  });
+
+  video.addEventListener("timeupdate", function() {
+    // Détermine si nous avons atteint la fin de la vidéo
+    if (video.currentTime >= video.duration - cutEndDuration) {
+      // Arrête la vidéo à la fin de la partie que nous voulons garder
+      video.currentTime = video.duration - cutEndDuration;
+      video.pause();
+      
+      // Redémarre la vidéo après un court délai
+      setTimeout(function() {
+        video.currentTime = cutStartDuration; // Redémarre la vidéo après avoir coupé le début
+        video.play(); // Reprend la lecture
+      }, 500); // Délai en millisecondes avant de redémarrer la vidéo (1 seconde dans cet exemple)
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+{% endblock %}

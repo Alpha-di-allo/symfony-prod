@@ -1,0 +1,137 @@
+/* body {
+  background-image: url("https://img.freepik.com/vecteurs-libre/vecteur-bulle-discours-annonce-vierge-ombres-esthetiques_53876-135937.jpg?w=740&t=st=1708478669~exp=1708479269~hmac=4a36aa4ecf2ce7391d0dbd29009dfcee47acb3dee6ad256700e744524a0f324c");
+}
+.titre {
+  text-align: center;
+  margin-top: 2%;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #efc841;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+  color: #000000;
+  font-size: 3em;
+  margin-top: 3%;
+}
+
+.container {
+  max-width: 100%; /* Assure que le conteneur ne dépasse pas la largeur de la fenêtre */
+  padding: 0 15px; /* Ajoute du padding pour éviter que le contenu ne touche les bords */
+}
+
+table {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+thead {
+  background-color: #408b42;
+  color: #ffffff;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tr:last-of-type {
+  border-bottom: 2px solid #050505;
+}
+
+a {
+  color: #408b42;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  text-align: center;
+  color: #555;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+.retour {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.retour:hover {
+  background-color: #408b42;
+}
+
+.btn {
+  text-decoration: none !important;
+}
+
+.btn:hover {
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+
+  th,
+  td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .retour {
+    margin-right: 2%;
+  }
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lien Mot De Passe{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href={{asset('css/checkEmail.css')}}
+{% endblock %}
+
+{% block body %}
+<class="content-container"
+    <div class="para"> 
+        <p>
+             Si un compte correspondant à votre adresse e-mail existe, un e-mail contenant un lien vous permettant de réinitialiser votre mot de passe vient d'être envoyé.
+             Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        </p>
+        <p>Si vous ne recevez pas d'Email merci de consulter votre dossier spam  <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    </div>
+</div>
+{% endblock %}
