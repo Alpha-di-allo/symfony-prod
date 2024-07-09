@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 #[ORM\HasLifecycleCallbacks()]
 #[UniqueEntity(fields: ['email'], message: 'Un compte existe déja avec cette adresse mail ')]
 #[ApiResource()]
+
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]

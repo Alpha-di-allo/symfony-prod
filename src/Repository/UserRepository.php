@@ -48,12 +48,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      */
 
 
-     public function findUsersByRoleEmploye(): array
+     public function findUsersByRoleEmploye(): array // retourne un tableau d'utilisateurs 
     {
-        return $this->createQueryBuilder('u')
-            ->where('u.roles LIKE :role') //like pour rechercher dans le tableau des rôles.
-            ->setParameter('role', '%"ROLE_ADMIN"%') // on veut que le role et le role ADMIN 
-            ->getQuery()  // prend la requete 
+        return $this->createQueryBuilder('u') // crée un queryBuilder pour l'entité User avec alias u 
+            ->where('u.roles LIKE :role') //ajoute une clause WHERE pour filtrer les utilsateurs . like est utilisé car ROLE est stocker en JSON .
+            ->setParameter('role', '%"ROLE_ADMIN"%') //définit la valeur du parametre juste au dessus .  on veut que le role et le role ADMIN . % pour une recherche partiel 
+            ->getQuery()  // prend la requete . 
             ->getResult(); // donne le retour 
     }
 

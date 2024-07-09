@@ -1,7 +1,8 @@
 body {
-  background-image: url("https://img.freepik.com/photos-gratuite/bulles-style-pop-art-fond-jaune_23-2147910070.jpg?w=360&t=st=1708476480~exp=1708477080~hmac=3d39ca9d77e1c87bd3a7267e11f55f19909c2821edacc4b79945174f1911d2fb");
+  /* background-image: url("https://img.freepik.com/photos-gratuite/bulles-style-pop-art-fond-jaune_23-2147910070.jpg?w=360&t=st=1708476480~exp=1708477080~hmac=3d39ca9d77e1c87bd3a7267e11f55f19909c2821edacc4b79945174f1911d2fb"); */
   font-family: "Arial", sans-serif;
   color: white;
+  background-color: #efc841;
 
   /* height: 100vh; */
   /* margin: 0; */
@@ -21,7 +22,7 @@ body {
   margin-top: 6%;
   width: 30%;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 15%;
+  /* border-radius: 15%; */
   padding: 2rem;
   max-width: 600px; /* Maximum width to prevent it from getting too wide */
   box-sizing: border-box;

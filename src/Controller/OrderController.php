@@ -47,13 +47,14 @@ class OrderController extends AbstractController
         return $this->render('emails/FactureEmails.html.twig',[
              'order'=>$order, 
          ]);
-        // return $this->redirectToRoute('app_presentation', ['order' => $order]);
-         // Retourner une réponse JSON pour indiquer le succès de l'envoi du mail
-        //  return new JsonResponse(['success' => true]);
+     
     }
 
     #[Route('/my-orders', name: 'app_user_orders')]
     public function userOrders(Request $request): Response
+
+
+
     {
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();

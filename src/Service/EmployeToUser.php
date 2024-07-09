@@ -36,7 +36,7 @@ class EmployeToUser
 
                 //chercher les client de cet employé
                 foreach ($users as $client) {
-                    if ($client->getEmployees() != null && ($employe->getId() == $client->getEmployerId())) {
+                    if ($client->getClients() != null && ($employe->getId() == $client->getEmployerId())) {
                         $clientConseillerId = $client->getEmployerId();
                         $contClientEmploye += 1; // increment count client de ce employe
                     }

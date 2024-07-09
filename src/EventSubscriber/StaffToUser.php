@@ -31,10 +31,10 @@ public function addEmployeToUser(BeforeEntityPersistedEvent $event):void
 
         if( $entity instanceof User && in_array('ROLE_USER',$entity->getRoles(),true))
         {
-            // recuperer via mon service un utilisateur employer avec le moins d' USER 
+            // recuperer via mon service un conseiller avec le moins d' USER 
             $employer = $this->employeToUser->getEmployeUserWithLessUser();
             
-            // Associer l'utilisateur avec le rôle USER à l'utilisateur EMPLOYE qui a le moins d'utilisateurs associés
+            // Associer l'utilisateur avec le rôle USER au Conseiller qui a le moins d'utilisateurs associés
             if ($employer instanceof User) {
                 //on donne au USER son conseiller 
                     $entity->setEmployer($employer);

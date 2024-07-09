@@ -17,14 +17,14 @@ class AppExtension extends AbstractExtension
         $this->panierNotif = $panierNotif;
     }
 
-    public function getFunctions(): array
+    public function getFunctions(): array    // déclare la nouvelle fonction Twig nombreInPanier 
     {
         return [
             new TwigFunction('nombreInPanier', [$this, 'nombreInPanier']),
         ];
     }
 
-    public function nombreInPanier(): int
+    public function nombreInPanier(): int  // la méthode appelle le service pour obtenir le nombre d'article dans le panier 
     {
         return $this->panierNotif->cartNotif();
     }

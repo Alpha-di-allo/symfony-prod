@@ -9722,7 +9722,7 @@
         },
         {
             "name": "web-token/jwt-bundle",
-            "version": "3.4.3",
+            "version": "3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/web-token/jwt-bundle.git",
@@ -9787,7 +9787,7 @@
                 "symfony"
             ],
             "support": {
-                "source": "https://github.com/web-token/jwt-bundle/tree/3.4.3"
+                "source": "https://github.com/web-token/jwt-bundle/tree/3.4.6"
             },
             "funding": [
                 {
